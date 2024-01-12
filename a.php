@@ -6,19 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    $ages = array('Bob'=>20,'Peter'=>35);
+    <?php  
+    $ages = array('bob'=>20,'peter'=>35);
 
-    echo "1 - ".$ages['Bob']."<br>";
-    echo "2 - ".$ages['Peter']."<br>";
+    echo "1 - ".$ages['bob']."<BR>";
+    echo "2 - ".$ages['peter']."<BR>";
 
-    $ages['Lek'] = 18;
-    $ages['Ying'] = 42;
+    $ages['lek']= 18 ;
+    $ages['ying']= 42 ;
 
-    echo "3 - ".($ages['Lek'] + $ages['Peter'])."<br>";
-
-    $ages['Peter'] = $ages['Bob'] - $ages['Lek'];
-    echo "4 - " . $ages['Peter'] . "<br>";
-   ?>
+    echo "3 - " . ($ages['lek'] + $ages['peter']) . "<BR>";
+    $ages['peter'] = $ages['bob']- $ages['lek'];
+    echo "4 - ". $ages['peter']. "<BR>";
+    ?>
 </body>
 </html>

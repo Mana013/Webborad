@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loginWeb</title>
+    <title>Login</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Webboard Mana</h1>
+    <h1 style="text-align: center;">Web Mana Board</h1>
     <hr>
-    <form>
-        <table style="border: 2px solid black;width: 20%;" align="center">
-            <tr style="background-color: #6cd2fe;"><td colspan="2px">เข้าสู่ระบบ</td></tr>
-            <tr><td>Login</td><td><input type="text" name="Login" size="50"></td></tr>
-            <tr><td>Password</td><td><input type="password" name="Password" size="50"></td></tr>
-            <tr><td colspan="2" align="center"><input type="submit" value="Login"></td></tr>
-        </table>
-        <br>
-        <center> ถ้ายังไม่ได้เป็นสมาชิก<a href="register.html"> กรุณาสมัครสมาชิก</a></center>
+    <table style="border: 2px solid black; width: 20%;" align="center">
+        <form action="verify.php" method="post">
+        <tr><td style="background-color: #6cd2fe;" colspan="2" >เข้าสู่ระบบ</td></tr>
+        <tr><td>Login</td><td><input type="text" name="login" size="50"></td></tr>
+        <tr><td>Password</td><td><input type="password" name="password" size="50"></td></tr>
+        <tr style="text-align: center;"><td colspan="2"><input type="submit" value="Login"></td></tr>
     </form>
-   
+    </table>
+    <br>
+    <div style="text-align: center;">
+        ถ้ายังไม่ได้เป็นสมาชิก <a href="register.html" target="_blank">สมัครสมาชิก</a>
+</div>
 </body>
 </html>
