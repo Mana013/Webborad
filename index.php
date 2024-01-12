@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <h1 style="text-align: center;">Web Mana Board</h1>
+    <h1 style="text-align: center;">Web ManaBoard</h1>
     <hr>
     หมวดหมู่: <select name="category">
         <option value="all">--ทั้งหมด--</option>></option>
