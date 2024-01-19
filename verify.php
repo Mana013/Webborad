@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1 style="text-align: center;">Web BoardMana</h1>
+<h1 style="text-align: center;">Web ManaBoard</h1>
     <hr>
    <?php 
    $user = $_POST['login'];
