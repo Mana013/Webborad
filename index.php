@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webboard</title>
 </head>
-<?php
-    if(!isset($_SESSION["id"])){
-?>
 <body>
     <h1 style="text-align: center;">WebBoard Mana</h1>
     <hr>
@@ -20,9 +17,18 @@
         <option value="general">--เรื่องทั่วไป--</option>></option>
         <option value="study">--เรื่องเรียน--</option>></option>
     </select>
-    <a href="login.php" target="_blank" style="float: right;">เข้าสู่ระบบ</a>
+    
     <ul>
         <?php 
+        if(!isset($_SESSION["id"])){
+            <a href="login.php" target="_blank" style="float: right;">เข้าสู่ระบบ</a>
+        }
+        else{
+            eco"<div style='float right;'>
+            ผู้ใช้งานระบบ : $_SESSION[username]&nbsp;&nbsp;
+            <a href="logout.php" >ออกจากระบบ</a>
+            </div>";
+        }
         for($p=1;$p<=10;$p++){
         echo "<li><a href=post.php?id=$p target='_blank' >กระทู้ที่ $p  </a></li>"; 
 }
