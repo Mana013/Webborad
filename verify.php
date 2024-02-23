@@ -1,7 +1,3 @@
-<?php
-    session_start();
-     
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +6,33 @@
     <title>Document</title>
 </head>
 <body>
+<?php session_start();  ?>
 <h1 style="text-align: center;">Web ManaBoard</h1>
     <hr>
    <?php 
-   $user = $_POST['login'];
-   $pass = $_POST['password'];
+   $id = $_POST['login'];
+   $pw = $_POST['password'];
    ?>
-
    <div style="text-align: center;" > <?php  
-   if($user=='admin'&&$pass=='ad1234'){
-    echo "ยินดีต้อนรับคุณ admin" .'<BR>';
-            $_SESSION["username"] = "admin";
-            $_SESSION["role"] = "a";
-            $_SESSION["id"] = session_id();
+   if($id=='admin'&&$pw=='ad1234'){
+    $_SESSION["username"] = $id;
+    $_SESSION["role"] = 'a';
+    $_SESSION["id"] = session_id();
+    header("location : index.php");
+    die();
    }
-   else if($user=='member'&&$pass=='m1234'){
-   echo "ยินดีต้อนรับคุณ member" .'<BR>';
-            $_SESSION["username"] = "member";
-            $_SESSION["role"] = "m";
-            $_SESSION["id"] = session_id();
+   else if($id=='member'&&$pw=='mem1234'){
+    $_SESSION["username"] = $id;
+    $_SESSION["role"] = 'm';
+    $_SESSION["id"] = session_id();
+    header("location : index.php");
+    die();
    }
-   else if ($user == 'Mana' && $pass == '1234') {
-    echo "ยินดีต้อนรับคุณ Mana";
-}
-   else echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง".'<BR>';
-   ?> </div>
-   <div style="text-align: center;"> 
-        <a href="index.php">กลับไปที่หน้าหลัก</a>
-    </div>
+   else {
+   $_SESSION["error"] = 'error';
+   header("location: login.php");
+   die();
+   }
+   ?>
 </body>
 </html>
