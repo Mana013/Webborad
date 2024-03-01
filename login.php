@@ -34,12 +34,12 @@
                 <div class="card-body">
                     <form action="verify.php" method="POST">
                     <div class="form-group">
-                        <label for="user" class="form-label">Login:</label>
-                        <input type="text" id="user" name="login" class="form-control" placeholder="Username" required>
+                        <label for="id" class="form-label">Login:</label>
+                        <input type="text" id="id" name="login" class="form-control" placeholder="Username" required>
                     </div>
                     <div class="form-group mt-2">
-                        <label for="pass" class="form-label">Password:</label>
-                        <input type="password" id="pass" class="form-control"name="password" placeholder="Password" required>
+                        <label for="pw" class="form-label">Password:</label>
+                        <input type="password" id="pw" class="form-control"name="password" placeholder="Password" required>
                     </div>
                     <div class="d-flex justify-content-center mt-3">
                     <button type="submit" class="btn btn-secondary m-1">Login</button> 
