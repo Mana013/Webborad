@@ -1,7 +1,3 @@
-<?php
-    session_start();
-     
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-<h1 style="text-align: center;">Web ManaBoard</h1>
-    <hr>
-   <?php 
-   $user = $_POST['login'];
-   $pass = $_POST['password'];
+<?php session_start(); 
+    if(isset($_SESSION['id'])){
+        header("Location:index.php");
+        die();
+    }
+   $id = $_POST['login'];
+   $pwd = $_POST['password'];
+   $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
+   $sql="SELECT * FROM user where login='$id'and password=sha1('$pwd')";
+   $result=$conn->query($sql);
+   if($result->rowCount()==1){
+    $data=$result->fetch(PDO::FETCH_ASSOC);
+    $_SESSION["username"] = $data['login'];
+    $_SESSION["role"] = $data['role'];
+    $_SESSION["user_id"] = $data['id'];
+    $_SESSION["id"] = session_id();
+    header("Location:index.php");
+    die();
+   }
+   else {
+   $_SESSION["error"] = 'error';
+   header("Location:login.php");
+   die();
+   }
+   $conn=null;
    ?>
-
-   <div style="text-align: center;" > <?php  
-   if($user=='admin'&&$pass=='ad1234'){
-    echo "ยินดีต้อนรับคุณ admin" .'<BR>';
-            $_SESSION["username"] = "admin";
-            $_SESSION["role"] = "a";
-            $_SESSION["id"] = session_id();
-   }
-   else if($user=='member'&&$pass=='m1234'){
-   echo "ยินดีต้อนรับคุณ member" .'<BR>';
-            $_SESSION["username"] = "member";
-            $_SESSION["role"] = "m";
-            $_SESSION["id"] = session_id();
-   }
-   else if ($user == 'Mana' && $pass == '1234') {
-    echo "ยินดีต้อนรับคุณ Mana";
-}
-   else echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง".'<BR>';
-   ?> </div>
-   <div style="text-align: center;"> 
-        <a href="index.php">กลับไปที่หน้าหลัก</a>
-    </div>
 </body>
 </html>
