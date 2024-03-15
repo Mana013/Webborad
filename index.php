@@ -11,7 +11,8 @@
 <?php session_start(); ?> 
 <body>
 <div class="container - lg">
-    <h1 style="text-align: center;">Web Ja Board</h1>
+    <h1 style="text-align: center;">Web ManaBoard</h1>
+
     <form action="post.php" method="get">
         <div class="container-fluid">
             <nav class="navbar bg-body-tertiary">
@@ -51,8 +52,12 @@
         <?php if(isset($_SESSION['id'])) {?>
         <div >  <a href="newpost.php" class="btn btn-success btn-sm "><i class="bi bi-plus"></i> สร้างกระทู้ใหม่</a> </div>
         <?php }?>
+
     </div>
          
+
+    </div>      
+
     <table class="table table-striped mt-4">
     <?php 
          $conn=new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
@@ -85,4 +90,9 @@
             }
         }
     </script>
+
+    </table> 
+</div>
+</body>
+
 </html>
