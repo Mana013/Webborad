@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2024 at 05:55 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Apr 01, 2024 at 07:50 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL
+  `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -49,7 +49,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL,
-  `content` varchar(20148) COLLATE utf8_unicode_ci NOT NULL,
+  `content` varchar(20148) NOT NULL,
   `post_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL
@@ -63,8 +63,8 @@ CREATE TABLE `comment` (
 
 CREATE TABLE `post` (
   `id` int(11) NOT NULL,
-  `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `content` varchar(2048) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `content` varchar(2048) NOT NULL,
   `post_date` datetime NOT NULL,
   `cat_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
@@ -77,14 +77,9 @@ CREATE TABLE `post` (
 INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) VALUES
 (1, 'ใครน่ารักขอให้ยกมือขึ้น', 'ใครน่ารักขอให้ยกมือขึ้น 0/ 0/ 0/ 0/', '2024-03-01 11:03:56', 1, 7),
 (2, 'ใครน่ารักขอให้ยกมือขึ้น', 'ใครน่ารักขอให้ยกมือขึ้น 0/ 0/ 0/ 0/', '2024-03-01 11:04:34', 1, 7),
-(3, 'คณิตศาสน์', '1+1=0', '2024-03-01 11:19:43', 2, 7),
-(4, 'ลิเวอพูได้แชม', 'แมนยู 7-0 ยิงได้ !โดนยิง', '2024-03-01 11:20:48', 3, 7),
-(5, 'จะ F มั้ยครับ', '', '2024-03-01 11:46:38', 2, 8),
-(6, 'Onepiece อยู่ไหนว้าาาาาาา', '', '2024-03-01 11:47:14', 1, 8),
-(7, 'ท่าทางจะรีไทร์ ไปขอเกรดกับใครดี', '', '2024-03-01 11:47:50', 2, 8),
-(8, 'ลิเวอร์พูล กับ แมนซิตี้ ผลเมื่อคืนเป็นยังไงบ้าง', '', '2024-03-01 11:48:42', 3, 8),
-(9, 'มาแบบแพ็คคู่! เอ็มบัปเป้ขอเรอัล มาดริดดึงน้องชายร่วมทีมด้วย', '', '2024-03-01 11:52:41', 3, 9),
-(10, 'ไม่กลัวแหกโค้ง! Marca ฟันธง’เอ็มบัปเป้’เป็นนักเตะเรอัล มาดริดแล้ว', '', '2024-03-01 11:53:58', 3, 10);
+(3, 'คณิตศาสน์', '1+1=4', '2024-03-01 11:19:43', 2, 7),
+(4, 'แมนยูจอก', 'แมนยู 7-0 ยิงได้ !โดนยิง', '2024-03-01 11:20:48', 3, 7),
+(6, 'sssawawaw', 'sssawwa', '2024-04-01 12:38:59', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -94,12 +89,12 @@ INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) 
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `login` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` char(1) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `role` char(1) COLLATE utf8_unicode_ci NOT NULL
+  `login` varchar(32) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `gender` char(1) NOT NULL,
+  `email` varchar(32) NOT NULL,
+  `role` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -108,9 +103,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
 (3, 'm1', 'c9198296f907c066bd972d59eace9af1402a4eea', 'msm1', 'M', 'msm@mail.com', 'm'),
-(8, 'ad', '356a192b7913b04c54574d18c28d46e6395428ab', 'dda', 'M', 'dddbbb@email.com', 'm'),
-(9, 'ff', '356a192b7913b04c54574d18c28d46e6395428ab', 'ffff', 'M', 'fffff@gmail.com', 'm'),
-(10, 'ee', '356a192b7913b04c54574d18c28d46e6395428ab', 'eeee', 'M', 'eeeeee@gmail.com', 'm');
+(5, 'm2', 'c9198296f907c066bd972d59eace9af1402a4eea', 'm2', 'M', 'msm2@mail.com', 'm'),
+(6, 'm3', 'c9198296f907c066bd972d59eace9af1402a4eea', 'mm', 'M', 'msm3@mail.com', 'm'),
+(7, 'a', '895b317c76b8e504c2fb32dbb4420178f60ce321', 'aa', 'M', 'a@mail.com', 'a');
 
 --
 -- Indexes for dumped tables
@@ -148,7 +143,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -160,13 +155,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
